@@ -14,7 +14,7 @@ CRATES="
 	anstyle-query@1.1.5
 	anstyle-wincon@3.0.11
 	anstyle@1.0.14
-	anyhow@1.0.104
+	anyhow@1.0.103
 	arraydeque@0.5.1
 	atomic-waker@1.1.2
 	auth-git2@0.6.0
@@ -23,21 +23,20 @@ CRATES="
 	aws-lc-sys@0.43.0
 	base64@0.22.1
 	base64ct@1.8.3
-	bitflags@1.3.2
 	bitflags@2.13.1
 	block-buffer@0.12.1
 	bumpalo@3.20.3
 	bytes@1.12.1
 	calendrical_calculations@0.2.4
 	caseless@0.2.2
-	cc@1.4.0
+	cc@1.3.0
 	cfg-if@1.0.4
 	cfg_aliases@0.2.2
 	chacha20@0.10.1
-	clap@4.6.4
+	clap@4.6.2
 	clap_builder@4.6.2
 	clap_complete@4.6.7
-	clap_derive@4.6.4
+	clap_derive@4.6.1
 	clap_lex@1.1.0
 	cmake@0.1.58
 	colorchoice@1.0.5
@@ -50,9 +49,6 @@ CRATES="
 	core_maths@0.1.1
 	cpufeatures@0.3.0
 	crypto-common@0.2.2
-	defmt-macros@1.1.1
-	defmt-parser@1.0.0
-	defmt@1.1.1
 	deranged@0.5.8
 	digest@0.11.3
 	directories@6.0.0
@@ -60,14 +56,14 @@ CRATES="
 	dirs@6.0.0
 	displaydoc@0.2.6
 	dunce@1.0.5
-	either@1.17.0
+	either@1.16.0
 	encoding_rs@0.8.35
 	encoding_rs_io@0.1.7
 	entities@1.0.1
 	equivalent@1.0.2
 	errno@0.3.14
 	eyre@0.6.12
-	fastrand@2.5.0
+	fastrand@2.4.1
 	find-msvc-tools@0.1.9
 	finl_unicode@1.4.0
 	fixed_decimal@0.7.2
@@ -93,7 +89,7 @@ CRATES="
 	getrandom@0.4.3
 	git2@0.20.4
 	git2@0.21.0
-	glob@0.3.4
+	glob@0.3.3
 	granit-parser@0.0.7
 	h2@0.4.15
 	hashbrown@0.17.1
@@ -106,7 +102,7 @@ CRATES="
 	hybrid-array@0.4.13
 	hyper-rustls@0.27.9
 	hyper-util@0.1.20
-	hyper@1.11.0
+	hyper@1.10.1
 	icu_calendar@2.2.1
 	icu_calendar_data@2.2.0
 	icu_collections@2.2.0
@@ -140,18 +136,17 @@ CRATES="
 	itoa@1.0.18
 	ixdtf@0.6.5
 	jetscii@0.5.3
-	jiff-core@0.1.0
 	jiff-icu@0.2.2
-	jiff-static@0.2.35
-	jiff@0.2.35
+	jiff-static@0.2.32
+	jiff@0.2.32
 	jni-macros@0.22.4
 	jni-sys-macros@0.4.1
 	jni-sys@0.4.1
 	jni@0.22.4
 	jobserver@0.1.35
 	js-sys@0.3.103
-	libc@0.2.189
-	libgit2-sys@0.18.7+1.9.6
+	libc@0.2.186
+	libgit2-sys@0.18.5+1.9.4
 	libm@0.2.16
 	libredox@0.1.18
 	libssh2-sys@0.3.2
@@ -187,11 +182,11 @@ CRATES="
 	potential_utf@0.1.5
 	powerfmt@0.2.0
 	proc-macro-hack@0.5.20+deprecated
-	proc-macro2@1.0.107
+	proc-macro2@1.0.106
 	quinn-proto@0.11.16
 	quinn-udp@0.5.15
 	quinn@0.11.11
-	quote@1.0.47
+	quote@1.0.46
 	r-efi@5.3.0
 	r-efi@6.0.0
 	rand@0.10.2
@@ -207,7 +202,7 @@ CRATES="
 	rustc_version@0.4.1
 	rustix@1.1.4
 	rustls-native-certs@0.8.4
-	rustls-pki-types@1.15.1
+	rustls-pki-types@1.15.0
 	rustls-platform-verifier-android@0.1.1
 	rustls-platform-verifier@0.7.0
 	rustls-webpki@0.103.13
@@ -220,10 +215,10 @@ CRATES="
 	self_cell@1.3.0
 	semver@1.0.28
 	serde-saphyr@0.0.29
-	serde@1.0.229
-	serde_core@1.0.229
-	serde_derive@1.0.229
-	serde_json@1.0.151
+	serde@1.0.228
+	serde_core@1.0.228
+	serde_derive@1.0.228
+	serde_json@1.0.150
 	sha2@0.11.0
 	shlex@1.3.0
 	shlex@2.0.1
@@ -240,25 +235,24 @@ CRATES="
 	strsim@0.11.1
 	subtle@2.6.1
 	syn@2.0.119
-	syn@3.0.3
 	sync_wrapper@1.0.2
 	synstructure@0.13.2
 	system-configuration-sys@0.6.0
 	system-configuration@0.7.0
 	terminal-prompt@0.2.3
 	terminal_size@0.4.4
-	thiserror-impl@2.0.19
-	thiserror@2.0.19
+	thiserror-impl@2.0.18
+	thiserror@2.0.18
 	time-core@0.1.9
-	time-macros@0.2.32
-	time@0.3.54
+	time-macros@0.2.31
+	time@0.3.53
 	tinystr@0.8.3
 	tinyvec@1.12.0
 	tinyvec_macros@0.1.1
 	tokio-macros@2.7.1
 	tokio-rustls@0.26.4
-	tokio-util@0.7.19
-	tokio@1.53.1
+	tokio-util@0.7.18
+	tokio@1.53.0
 	tower-http@0.6.11
 	tower-layer@0.3.3
 	tower-service@0.3.3
@@ -321,8 +315,8 @@ CRATES="
 	writeable@0.6.3
 	yoke-derive@0.8.2
 	yoke@0.8.3
-	zerocopy-derive@0.8.55
-	zerocopy@0.8.55
+	zerocopy-derive@0.8.54
+	zerocopy@0.8.54
 	zerofrom-derive@0.1.7
 	zerofrom@0.1.8
 	zeroize@1.9.0
