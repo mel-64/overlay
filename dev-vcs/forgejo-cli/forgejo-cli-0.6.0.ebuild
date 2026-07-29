@@ -329,8 +329,9 @@ CRATES="
 inherit cargo
 
 DESCRIPTION="CLI tool for Forgejo"
-HOMEPAGE=""
+HOMEPAGE="https://codeberg.org/forgejo-contrib/forgejo-cli"
 SRC_URI="
+	https://codeberg.org/forgejo-contrib/forgejo-cli/archive/v${PV}.tar.gz
 	${CARGO_CRATE_URIS}
 "
 
