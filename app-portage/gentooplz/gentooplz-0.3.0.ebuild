@@ -229,11 +229,12 @@ DESCRIPTION="Gentoo please... A terminal build monitor for Portage."
 HOMEPAGE=""
 
 # SRC_URI for the project currently has to be hardcoded due to the project having no tags.
+COMMIT_HASH="16638fafc04f845c7b36735e20b2eddafd4e0faf"
 SRC_URI="
-	https://github.com/JustRoccat/gentooplz/archive/16638fa.tar.gz
+	https://github.com/JustRoccat/gentooplz/archive/${COMMIT_HASH}.tar.gz
 	${CARGO_CRATE_URIS}
 "
-S="${WORKDIR}/gentooplz-16638fafc04f845c7b36735e20b2eddafd4e0faf"
+S="${WORKDIR}/gentooplz-${COMMIT_HASH}"
 
 RUST_MIN_VER="1.95"
 LICENSE="MIT"
