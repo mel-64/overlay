@@ -226,7 +226,7 @@ CRATES="
 inherit cargo
 
 DESCRIPTION="Gentoo please... A terminal build monitor for Portage."
-HOMEPAGE=""
+HOMEPAGE="https://github.com/JustRoccat/gentooplz"
 
 SRC_URI="
 	https://github.com/JustRoccat/gentooplz/archive/refs/tags/v${PV}.tar.gz
