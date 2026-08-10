@@ -1,0 +1,30 @@
+name: Check Renovate headers
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check-renovate-headers:
+    runs-on: alpine-tools
+
+    steps:
+      - name: Check ebuilds
+        run: |
+          none_failed=true
+
+          ebuilds=$(find . -type f -name '*.ebuild')
+
+          for ebuild in $ebuilds; do
+            if ! grep -q '^# renovate: datasource=' "$ebuild"; then
+              echo "No renovate header in $ebuild!!"
+              none_failed=false
+            fi
+          done
+
+          if ! $none_failed; then
+            echo "Some ebuilds are missing renovate headers"
+            exit 1
+          fi
+
+          echo "All ebuilds have renovate headers"
