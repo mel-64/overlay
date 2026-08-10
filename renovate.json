@@ -1,6 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
+  "dependencyDashboardApproval": true,
   "customManagers": [
     {
       "customType": "regex",
@@ -20,6 +21,4 @@
       "labels": ["ebuild-update"]
     }
   ],
-  "prConcurrentLimit": 3,
-  "rebaseWhen": "conflicted"
 }
