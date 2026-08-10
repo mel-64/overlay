@@ -9,7 +9,7 @@
         "/(^|/)[^/]+\\.ebuild$/"
       ],
       "matchStrings": [
-        "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n# Current version: (?<currentValue>\\S+)"
+        "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)(?: packageName=(?<packageName>\\S+))?(?: registryUrl=(?<registryUrl>\\S+))?\\n# Current version: (?<currentValue>\\S+)"
       ]
     }
   ],
