@@ -6,7 +6,6 @@
 # renovate: datasource=github-tags depName=rustic-rs/rustic
 # Current version: 0.11.3
 
-
 EAPI=8
 
 CRATES="
@@ -737,7 +736,7 @@ inherit cargo
 DESCRIPTION="rustic - fast, encrypted, deduplicated backups powered by Rust"
 HOMEPAGE="https://rustic.cli.rs/"
 SRC_URI="
-	https://github.com/rustic-rs/rustic/archive/refs/tags/v${PV}.tar.gz
+	https://github.com/rustic-rs/rustic/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
 "
 
@@ -747,5 +746,6 @@ LICENSE+="
 	0BSD Apache-2.0 BSD CC0-1.0 CDLA-Permissive-2.0 ISC MIT MPL-2.0
 	MPL-2.0 Unicode-3.0 ZLIB
 "
+RUST_MIN_VER="1.88.0"
 SLOT="0"
 KEYWORDS="~amd64"

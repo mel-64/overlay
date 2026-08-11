@@ -6,7 +6,6 @@
 # renovate: datasource=github-tags depName=nabijaczleweli/cargo-update
 # Current version: 22.1.1
 
-
 EAPI=8
 
 CRATES="
@@ -173,9 +172,9 @@ CRATES="
 inherit cargo
 
 DESCRIPTION="A cargo subcommand for checking and applying updates to installed executables"
-HOMEPAGE=""
+HOMEPAGE="https://github.com/nabijaczleweli/cargo-update"
 SRC_URI="
-	https://github.com/nabijaczleweli/cargo-update/archive/refs/tags/v${PV}.tar.gz
+	https://github.com/nabijaczleweli/cargo-update/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
 "
 

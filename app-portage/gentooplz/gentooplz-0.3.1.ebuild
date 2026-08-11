@@ -6,7 +6,6 @@
 # renovate: datasource=github-tags depName=JustRoccat/gentooplz
 # Current version: 0.3.1
 
-
 EAPI=8
 
 CRATES="
@@ -229,11 +228,11 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="Gentoo please... A terminal build monitor for Portage."
+DESCRIPTION="Gentoo please... A terminal build monitor for Portage"
 HOMEPAGE="https://github.com/JustRoccat/gentooplz"
 
 SRC_URI="
-	https://github.com/JustRoccat/gentooplz/archive/refs/tags/v${PV}.tar.gz
+	https://github.com/JustRoccat/gentooplz/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
 "
 

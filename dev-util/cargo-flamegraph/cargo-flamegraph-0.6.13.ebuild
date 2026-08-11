@@ -6,7 +6,6 @@
 # renovate: datasource=github-tags depName=flamegraph-rs/flamegraph
 # Current version: 0.6.13
 
-
 EAPI=8
 
 CRATES="
@@ -269,10 +268,10 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="A simple cargo subcommand for generating flamegraphs, using inferno under the hood"
+DESCRIPTION="A simple cargo subcommand for generating flamegraphs"
 HOMEPAGE="https://github.com/flamegraph-rs/flamegraph"
 SRC_URI="
-	https://github.com/flamegraph-rs/flamegraph/archive/refs/tags/v${PV}.tar.gz
+	https://github.com/flamegraph-rs/flamegraph/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
 "
 S="${WORKDIR}/flamegraph-${PV}"

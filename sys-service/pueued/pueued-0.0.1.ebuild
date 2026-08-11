@@ -1,18 +1,16 @@
 EAPI=8
 
 DESCRIPTION="pueue as daemon service script"
+HOMEPAGE="https://git.shork.ch/melody/overlay/sys-service/pueued"
 LICENSE="GPL-3"
+S="${WORKDIR}"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="
-    app-misc/pueue
-"
-
-S="${WORKDIR}"
+RDEPEND="app-misc/pueue::guru"
 
 src_install() {
-    cat > "${T}/${PN}.initd" <<EOF || die
+cat > "${T}/${PN}.initd" <<EOF || die
 #!/sbin/openrc-run
 
 description="${DESCRIPTION}"
