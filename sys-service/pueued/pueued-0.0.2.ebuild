@@ -7,7 +7,7 @@ S="${WORKDIR}"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="app-misc/pueue::guru"
+RDEPEND="app-misc/pueue"
 
 src_install() {
 cat > "${T}/${PN}.initd" <<EOF || die
