@@ -2,8 +2,8 @@ EAPI=8
 
 DESCRIPTION="pueue as daemon service script"
 HOMEPAGE="https://git.shork.ch/melody/overlay/sys-service/pueued"
-LICENSE="GPL-3"
 S="${WORKDIR}"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
