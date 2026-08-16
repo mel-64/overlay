@@ -1,0 +1,50 @@
+name: Check QA with pkgcheck
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: alpine-tools
+    steps:
+      - id: QA
+        shell: sh
+        name: QA
+        run: |
+          set -eux
+
+          GENTOO=/var/db/repos/gentoo
+          GURU=/var/db/repos/guru
+          OVERLAY_LOCATION=/var/db/repos/melody
+          OVERLAY_GIT=https://git.shork.ch/melody/overlay
+          PROFILE=default/linux/amd64/23.0
+
+          export PATH="$HOME/.local/bin:$PATH"
+
+          mkdir -p /etc/portage
+
+          cat >/etc/portage/repos.conf <<EOF
+          [DEFAULT]
+          main-repo = gentoo
+
+          [gentoo]
+          location = ${GENTOO}
+
+          [guru]
+          location = ${GURU}
+          masters = gentoo
+
+          [melody]
+          location = ${OVERLAY_LOCATION}
+          masters = gentoo guru
+          EOF
+
+          mkdir -p /var/db/repos
+          git clone --depth=1 https://github.com/gentoo-mirror/gentoo.git "${GENTOO}"
+          git clone --depth=1 https://github.com/gentoo-mirror/guru.git "${GURU}"
+          git clone --depth=1 "${OVERLAY_GIT}" "${OVERLAY_LOCATION}"
+
+          ln -s "$GENTOO/profiles/$PROFILE" /etc/portage/make.profile
+
+          cd "${OVERLAY_LOCATION}"
+          uvx pkgcheck scan .
+
