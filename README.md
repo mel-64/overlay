@@ -3,6 +3,7 @@
 My personal overlay possibly providing a few ebuilds
 
 [![workflow-badge](https://git.shork.ch/melody/overlay/badges/workflows/check_header.yaml/badge.svg)](https://git.shork.ch/melody/overlay/actions)
+[![workflow-badge](https://git.shork.ch/melody/overlay/badges/workflows/qa.yaml/badge.svg)](https://git.shork.ch/melody/overlay/actions)
 
 Update checker (/ renovate dependency tracker) viewable [here](https://git.shork.ch/melody/overlay/issues/1)
 
