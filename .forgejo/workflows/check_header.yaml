@@ -11,13 +11,15 @@ jobs:
     steps:
       - name: Check ebuilds
         run: |
+          git clone https://git.shork.ch/melody/overlay.git --depth 1 .
+
           none_failed=true
 
           ebuilds=$(find . -type f -name '*.ebuild')
 
           for ebuild in $ebuilds; do
-            if ! grep -q '^# renovate: datasource=' "$ebuild"; then
-              echo "No renovate header in $ebuild!!"
+            if ! grep -q -e '^# renovate: datasource=' -e '^# renovate: ignore' "$ebuild"; then
+              echo "No renovate header in $ebuild!"
               none_failed=false
             fi
           done
@@ -28,3 +30,4 @@ jobs:
           fi
 
           echo "All ebuilds have renovate headers"
+
