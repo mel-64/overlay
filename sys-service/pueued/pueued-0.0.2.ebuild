@@ -1,3 +1,5 @@
+# renovate: ignore
+
 EAPI=8
 
 DESCRIPTION="pueue as daemon service script"
