@@ -21,4 +21,10 @@
       "labels": ["ebuild-update"]
     }
   ],
+  "postUpgradeTasks": {
+    "commands": [
+      ".scripts/renovate/rename-ebuild.sh {{{packageFile}}} {{{newVersion}}}"
+    ],
+    "executionMode": "update"
+  }
 }
