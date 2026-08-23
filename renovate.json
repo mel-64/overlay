@@ -2,6 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
   "dependencyDashboardApproval": true,
+  "extractVersion": "^v?(?<version>.*)$",
   "customManagers": [
     {
       "customType": "regex",
@@ -9,7 +10,7 @@
         "/(^|/)[^/]+\\.ebuild$/"
       ],
       "matchStrings": [
-        "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)(?: packageName=(?<packageName>\\S+))?(?: registryUrl=(?<registryUrl>\\S+))?\\n# Current version: (?<currentValue>\\S+)"
+        "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)(?: packageName=(?<packageName>\\S+))?(?: registryUrl=(?<registryUrl>\\S+))?\\s+# Current version: (?<currentValue>\\S+)"
       ]
     }
   ],
@@ -23,8 +24,18 @@
   ],
   "postUpgradeTasks": {
     "commands": [
-      ".scripts/renovate/rename-ebuild.sh {{{packageFile}}} {{{newVersion}}}"
+      ".scripts/renovate/rename-ebuild.sh {{{packageFile}}} {{{newVersion}}}",
+      ".scripts/renovate/update-cargo.sh {{{packageFile}}} {{{newVersion}}}",
+      ".scripts/renovate/update-manifest.sh {{{packageFile}}} {{{newVersion}}}"
     ],
-    "executionMode": "update"
+    "executionMode": "update",
+    "installTools": {
+      "python": {},
+      "uv": {}
+    }
+  },
+  "constraints": {
+    "python": "3.12.3",
+    "uv": ">=0.4"
   }
 }
