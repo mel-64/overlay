@@ -4,6 +4,8 @@
 
 set -euo pipefail
 
+[[ "$1" == *.ebuild ]] || exit 0
+
 package_dir=$(dirname "$1")
 category=$(basename "$(dirname "$package_dir")")
 pkg=$(basename "$package_dir")
