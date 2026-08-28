@@ -16,3 +16,9 @@ Example:
 # renovate: datasource=forgejo-tags depName=forgejo-contrib/forgejo-cli packageName=forgejo-contrib/forgejo-cli registryUrl=https://codeberg.org
 # Current version: 0.6.0
 ```
+
+Minimal example:
+```
+# renovate: datasource=github-tags depName=rustic-rs/rustic
+# Current version: 0.11.4
+```
