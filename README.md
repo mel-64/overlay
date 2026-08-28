@@ -7,3 +7,12 @@ My personal overlay possibly providing a few ebuilds
 
 Update checker (/ renovate dependency tracker) viewable [here](https://git.shork.ch/melody/overlay/issues/1)
 
+## Renovate
+
+Renovate parses metadata from two comment lines in the respective ebuild files.
+
+Example:
+```
+# renovate: datasource=forgejo-tags depName=forgejo-contrib/forgejo-cli packageName=forgejo-contrib/forgejo-cli registryUrl=https://codeberg.org
+# Current version: 0.6.0
+```
