@@ -1,6 +1,6 @@
 # Gentoo overlay
 
-My personal overlay possibly providing a few ebuilds
+Personal overlay containing mostly cargo-based ebuilds with fully-automated update-checking with [renovate](https://github.com/renovatebot/renovate).
 
 [![workflow-badge](https://git.shork.ch/melody/overlay/badges/workflows/check_header.yaml/badge.svg)](https://git.shork.ch/melody/overlay/actions)
 [![workflow-badge](https://git.shork.ch/melody/overlay/badges/workflows/qa.yaml/badge.svg)](https://git.shork.ch/melody/overlay/actions)
