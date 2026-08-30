@@ -37,6 +37,35 @@ rename_ebuild() {
     echo "$new_file"
 }
 
+resolve_forge() {
+    local host=$1 owner=$2 repo_name=$3
+    if [[ $host == github.com ]]; then
+        echo "https://api.github.com/repos/$owner/$repo_name"
+    else
+        echo "https://$host/api/v1/repos/$owner/$repo_name"
+    fi
+}
+
+get_renovate_meta() {
+    local host=$1 owner=$2 repo_name=$3 version=$4
+    if [[ $host == github.com ]]; then
+        echo "# renovate: datasource=github-tags depName=$owner/$repo_name"
+    else
+        echo "# renovate: datasource=forgejo-tags depName=$owner/$repo_name packageName=$owner/$repo_name registryUrl=https://$host"
+    fi
+    echo "# Current version: $version"
+}
+
+fetch_description() {
+    local url=$1 pkg=$2 desc
+    desc=$(curl -fsSL "$url" | jq -r '.description')
+    [[ ${#desc} -gt 80 && $desc == *.* ]] && desc=${desc%%.*}
+    desc=${desc%[.,:; ]}
+    [[ ${#desc} -gt 80 ]] && desc="${desc:0:77}..."
+    [[ -n $desc ]] || desc="$pkg"
+    echo "$desc"
+}
+
 is_cargo_ebuild() {
     local inherit_line
     inherit_line=$(grep -E '^[[:space:]]*inherit[[:space:]]' "$1" || true)
