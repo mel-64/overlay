@@ -36,7 +36,7 @@ EAPI=8
 
 DESCRIPTION=""
 HOMEPAGE=""
-SRC_URI=""
+SRC_URI="$repo_url/archive/v\${PV}.tar.gz --> \${P}.tar.gz"
 
 LICENSE=""
 SLOT="0"
