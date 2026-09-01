@@ -17,3 +17,26 @@ sed -i "s|^SRC_URI=\"|&\n\t$repo_url/archive/v\${PV}.tar.gz -> \${P}.tar.gz|" "$
 
 topdir=${src##*/}
 [[ $topdir == "$pkg-$version" ]] || sed -i "/^LICENSE=/i S=\"\${WORKDIR}/$topdir\"" "$file"
+
+declare -A edition_msrv=(
+    [2024]="1.85.0"
+)
+edition=$(tomlq -r .package.edition "$src/Cargo.toml" 2>/dev/null || true)
+msrv=$(tomlq -r .package.rust-version "$src/Cargo.toml" 2>/dev/null || true)
+
+# Minimum profile rust version
+profile_min=$(grep -oP '_CARGO_ECLASS_RUST_MIN_VER="\K[^"]+' /var/db/repos/gentoo/eclass/cargo.eclass)
+
+edition_min="${edition_msrv[$edition]:-}"
+
+if [[ -n $msrv ]]; then
+    min_rust_ver=$msrv
+else
+    min_rust_ver=$edition_min
+fi
+
+# We should not write RUST_MIN_VER for versions smaller or equal to what the eclass defines as the minimum.
+[[ $min_rust_ver == $profile_min ]] && exit 0
+[[ $(printf '%s\n' "$profile_min" "$min_rust_ver" | sort -V | head -n1) == "$profile_min" ]] && exit 0
+
+sed -i "/^LICENSE=/i RUST_MIN_VER=\"$min_rust_ver\"" "$file"
