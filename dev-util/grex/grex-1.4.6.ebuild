@@ -178,7 +178,7 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="A command-line tool and Rust library with Python bindings for generating regular expressions"
+DESCRIPTION="A command-line tool for generating regular expressions"
 HOMEPAGE="https://github.com/pemistahl/grex"
 SRC_URI="
 	https://github.com/pemistahl/grex/archive/v${PV}.tar.gz -> ${P}.tar.gz
