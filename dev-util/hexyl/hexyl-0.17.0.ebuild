@@ -77,6 +77,7 @@ CRATES="
 	yansi@1.0.1
 "
 
+RUST_MIN_VER="1.88.0"
 inherit cargo
 
 DESCRIPTION="A command-line hex viewer"
@@ -86,7 +87,6 @@ SRC_URI="
 	${CARGO_CRATE_URIS}
 "
 
-RUST_MIN_VER="1.56.0"
 LICENSE="|| ( Apache-2.0 MIT )"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0 ISC MIT Unicode-DFS-2016 ZLIB"
