@@ -24,6 +24,18 @@ fetch_source() {
     fi
 }
 
+fetch_release_tag() {
+    local repo_url=$1 version=$2 tag
+    for tag in "v$version" "$version"; do
+        if curl -fsIL -o /dev/null "$repo_url/archive/$tag.tar.gz"; then
+            echo "$tag"
+            return
+        fi
+    done
+    echo "no tag found for $repo_url" >&2
+    return 1
+}
+
 get_package_name() {
     local target=$1
     [[ -d $target ]] || target=$(dirname "$target")
