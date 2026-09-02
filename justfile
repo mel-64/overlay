@@ -6,9 +6,9 @@ default:
 new pkg url version="":
     .scripts/new-ebuild.sh "{{pkg}}" "{{url}}" "{{version}}"
 
-# Run pkgdev QA checks over the repository
+# Run pkgcheck QA checks over the repository
 scan:
-    pkgdev scan .
+    pkgcheck scan .
 
 # Commit changes with pkgdev QA checks
 commit:
