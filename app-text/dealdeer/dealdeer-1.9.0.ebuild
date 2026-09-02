@@ -193,15 +193,4 @@ LICENSE="|| ( Apache-2.0 MIT )"
 LICENSE+=" Apache-2.0 BSD CDLA-Permissive-2.0 ISC MIT Unicode-3.0 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="ignore-online-tests logging native-tls +rustls-with-native-roots +rustls-with-webpki-roots"
 
-src_configure() {
-	local myfeatures=(
-		$(usev ignore-online-tests)
-		$(usev logging)
-		$(usev native-tls)
-		$(usev rustls-with-native-roots)
-		$(usev rustls-with-webpki-roots)
-	)
-	cargo_src_configure
-}
