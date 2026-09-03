@@ -1,0 +1,26 @@
+<pkgmetadata>
+  <maintainer type="person">
+    <email>admin@melthecat.dev</email>
+  </maintainer>
+  <upstream>
+    <maintainer>
+      <name>Clément DOUIN (soywod)</name>
+      <email>pimalaya.org@posteo.net</email>
+    </maintainer>
+    <remote-id type="github">pimalaya/himalaya</remote-id>
+  </upstream>
+  <use>
+    <flag name="gmail">add gmail support</flag>
+    <flag name="imap">add imap support</flag>
+    <flag name="jmap">add jmap support</flag>
+    <flag name="m2dir">add m2dir support</flag>
+    <flag name="maildir">add maildir support</flag>
+    <flag name="msgraph">add msgraph support</flag>
+    <flag name="native-tls">use native tls</flag>
+    <flag name="pimdir">add pimdir support</flag>
+    <flag name="rustls-aws">use rustls-aws</flag>
+    <flag name="rustls-ring">use rustls-ring</flag>
+    <flag name="smtp">add smtp support</flag>
+    <flag name="vendored">enable vendored cargo feature</flag>
+  </use>
+</pkgmetadata>
