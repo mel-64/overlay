@@ -1,0 +1,21 @@
+<pkgmetadata>
+  <maintainer type="person">
+    <email>admin@melthecat.dev</email>
+  </maintainer>
+  <upstream>
+    <doc>https://docs.rs/rustic-rs</doc>
+    <remote-id type="github">rustic-rs/rustic</remote-id>
+  </upstream>
+  <use>
+    <flag name="mimalloc">enable mimalloc allocator</flag>
+    <flag name="jemallocator">enable jemalloc allocator</flag>
+    <flag name="mount">add support for the mount command</flag>
+    <flag name="prometheus">add prometheus support</flag>
+    <flag name="opentelemetry">add opentelemetry support</flag>
+    <flag name="self-update">add self-update support</flag>
+    <flag name="tui">add tui support</flag>
+    <flag name="webdav">add webdav support</flag>
+    <flag name="rhai">add rhai support</flag>
+    <flag name="jq">add jq support</flag>
+  </use>
+</pkgmetadata>
