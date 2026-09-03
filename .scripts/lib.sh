@@ -83,3 +83,21 @@ is_cargo_ebuild() {
     inherit_line=$(grep -E '^[[:space:]]*inherit[[:space:]]' "$1" || true)
     [[ "$inherit_line" =~ (^|[[:space:]])cargo([[:space:]]|$) ]]
 }
+
+get_ebuild_var() {
+    local target=$1 var=$2 ebuild name pn pv value
+    ebuild=$(resolve_ebuild_path "$target") || return 1
+    name=$(basename "$ebuild" .ebuild)
+    pn=${name%-*}
+    pv=${name##*-}
+    value=$(
+        inherit() { :; }
+        PN=$pn PV=$pv P=$pn-$pv PF=$pn-$pv
+        set +eu
+        # shellcheck disable=SC1090
+        source "$ebuild"
+        printf '%s\n' "${!var:-}"
+    ) || return 1
+    [[ -n $value ]] || return 1
+    echo "$value"
+}
