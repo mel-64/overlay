@@ -1,0 +1,16 @@
+<pkgmetadata>
+  <maintainer type="person">
+    <email>admin@melthecat.dev</email>
+  </maintainer>
+  <upstream>
+    <maintainer>
+      <name>dystroy</name>
+      <email>denys.seguret@gmail.com</email>
+    </maintainer>
+    <remote-id type="github">Canop/bacon</remote-id>
+  </upstream>
+  <use>
+    <flag name="clipboard">add support for the copy-unstyled-output action</flag>
+    <flag name="sound">add support for play-sound action</flag>
+  </use>
+</pkgmetadata>
