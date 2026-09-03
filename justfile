@@ -6,6 +6,7 @@ pkg_from_dir := trim_start_match(trim_start_match(invocation_directory(), justfi
 default:
     @just --list
 
+# Add new ebuild
 new pkg url version="":
     .scripts/new-ebuild.sh "{{pkg}}" "{{url}}" "{{version}}"
 
@@ -28,9 +29,15 @@ sync:
 
 # Create the initial metadata.xml file
 [no-cd]
-metadata-init ebuild:
+[script]
+metadata-init ebuild='':
+    source "{{justfile_directory()}}/.scripts/lib.sh"
+    ebuild="{{ebuild}}"
+    cd {{justfile_directory()}}
+    [[ -z "{{ebuild}}" ]] && ebuild="$(resolve_ebuild_path {{pkg_from_dir}})"
+    cd -
     metagen -e $(git config author.email) --type person -f
-    gentle "{{ebuild}}"
+    gentle "$(basename $ebuild)"
 
 # Add useflag to metadata.xml
 [no-cd]
