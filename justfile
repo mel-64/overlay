@@ -37,6 +37,11 @@ metadata-init ebuild:
 use-add flag description:
     xq -ix '.pkgmetadata.use.flag |= (if type == "object" then [.] else . end) | .pkgmetadata.use.flag += [{"@name": "{{flag}}", "#text": "{{description}}"}]' metadata.xml
 
+# Call `use-add` with "add {{flag}} support"
+[no-cd]
+use-add-support flag:
+    just use-add "{{flag}}" "add {{flag}} support"
+
 # Open a packages homepage in default browser (often source repo)
 [script]
 open-homepage pkg=pkg_from_dir:
