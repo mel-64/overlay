@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>admin@melthecat.dev</email>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Clément DOUIN (soywod)</name>
+			<email>pimalaya.org@posteo.net</email>
+		</maintainer>
+		<remote-id type="github">pimalaya/himalaya-tui</remote-id>
+	</upstream>
+	<use>
+		<flag name="imap">add imap support</flag>
+		<flag name="jmap">add jmap support</flag>
+		<flag name="smtp">add smtp support</flag>
+		<flag name="maildir">add maildir support</flag>
+		<flag name="native-tls">use native tls</flag>
+		<flag name="rustls-aws">use rustls-aws</flag>
+		<flag name="rustls-ring">use rustls-ring</flag>
+		<flag name="vendored">enable vendored cargo feature</flag>
+	</use>
+</pkgmetadata>
