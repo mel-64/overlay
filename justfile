@@ -27,6 +27,11 @@ push:
 sync:
     sudo emaint sync --repo {{repo}}
 
+[script]
+localsync:
+    sudo git -C "/var/db/repos/melody" pull local main
+    
+
 # Create the initial metadata.xml file
 [no-cd]
 [script]
