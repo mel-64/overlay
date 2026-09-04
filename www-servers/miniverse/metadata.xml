@@ -1,0 +1,19 @@
+<pkgmetadata>
+  <maintainer type="person">
+    <email>admin@melthecat.dev</email>
+  </maintainer>
+  <upstream>
+    <maintainer>
+      <name>Sven-Hendrik Haase</name>
+      <email>svenstaro@gmail.com</email>
+    </maintainer>
+    <maintainer>
+      <name>Boastful Squirrel</name>
+      <email>boastful.squirrel@gmail.com</email>
+    </maintainer>
+    <remote-id type="github">svenstaro/miniserve</remote-id>
+  </upstream>
+  <use>
+    <flag name="tls">add tls support</flag>
+  </use>
+</pkgmetadata>
