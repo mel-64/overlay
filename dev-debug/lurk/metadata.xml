@@ -1,0 +1,16 @@
+<pkgmetadata>
+  <maintainer type="person">
+    <email>admin@melthecat.dev</email>
+  </maintainer>
+  <upstream>
+    <maintainer>
+      <name>Jakob Waibel</name>
+      <email>salet@posteo.net</email>
+    </maintainer>
+    <maintainer>
+      <name>Yuri Astrakhan</name>
+      <email>YuriAstrakhan@gmail.com</email>
+    </maintainer>
+    <remote-id type="github">JakWai01/lurk</remote-id>
+  </upstream>
+</pkgmetadata>
