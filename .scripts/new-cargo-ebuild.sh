@@ -10,6 +10,8 @@ tag_prefix=${5-v}
 
 pkg=${pkg_path##*/}
 
+[[ ! -f "$src/Cargo.lock" ]] && cargo generate-lockfile -m "$src/Cargo.toml"
+
 mkdir -p "$pkg_path"
 file="$pkg_path/$pkg-$version.ebuild"
 pycargoebuild -o "$file" -e "$src"
