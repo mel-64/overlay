@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>admin@melthecat.dev</email>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>George Burton</name>
+			<email>burtonageo@gmail.com</email>
+		</maintainer>
+		<remote-id type="github">burtonageo/cargo-bundle</remote-id>
+	</upstream>
+</pkgmetadata>
