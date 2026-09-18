@@ -40,3 +40,10 @@ src_prepare() {
 
 	default
 }
+
+src_install() {
+	emake DESTDIR="${D}" install
+	einstalldocs
+	use mobintl && dosym wvkbd-mobintl "/usr/bin/wvkbd"
+	use deskintl && dosym wvkbd-deskintl "/usr/bin/wvkbd"
+}
