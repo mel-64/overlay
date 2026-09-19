@@ -12,13 +12,9 @@ jobs:
         run: |
           set -eux
 
-          GENTOO_LOCATION=/var/db/repos/gentoo
+          REPO_LOCATION=/var/db/repos
           GENTOO_RSYNC=rsync://mirrors.shork.ch/gentoo
-
-          GURU_LOCATION=/var/db/repos/guru
           GURU_RSYNC=rsync://mirrors.shork.ch/gentoo-overlays/guru
-
-          OVERLAY_LOCATION=/var/db/repos/melody
           OVERLAY_RSYNC=rsync://mirrors.shork.ch/gentoo-overlays/melody
 
           PROFILE=default/linux/amd64/23.0
@@ -53,24 +49,24 @@ jobs:
           main-repo = gentoo
 
           [gentoo]
-          location = ${GENTOO_LOCATION}
+          location = ${REPO_LOCATION}/gentoo
 
           [guru]
-          location = ${GURU_LOCATION}
+          location = ${REPO_LOCATION}/guru
           masters = gentoo
 
           [melody]
-          location = ${OVERLAY_LOCATION}
+          location = ${REPO_LOCATION}/meldoy
           masters = gentoo guru
           EOF
 
-          mkdir -p /var/db/repos
-          rsync_cmd "${GENTOO_RSYNC}" "${GENTOO_LOCATION}"
-          rsync_cmd "${GURU_RSYNC}" "${GURU_LOCATION}"
-          rsync_cmd "${OVERLAY_RSYNC}" "${OVERLAY_LOCATION}"
+          mkdir -p "${REPO_LOCATION}"
+          rsync_cmd "${GENTOO_RSYNC}" "${REPO_LOCATION}/gentoo"
+          rsync_cmd "${GURU_RSYNC}" "${REPO_LOCATION}"
+          rsync_cmd "${OVERLAY_RSYNC}" "${REPO_LOCATION}"
 
-          ln -s "$GENTOO_LOCATION/profiles/$PROFILE" /etc/portage/make.profile
+          ln -s "${REPO_LOCATION}/gentoo/profiles/${PROFILE}" "/etc/portage/make.profile"
 
-          cd "${OVERLAY_LOCATION}"
+          cd "${REPO_LOCATION}/melody"
           uvx -w requests pkgcheck scan --exit error,warning,style . && echo "check successful!"
 
