@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
 <pkgmetadata>
-	<maintainer type="person">
-		<email>admin@melthecat.dev</email>
-	</maintainer>
-	<use>
-    		<flag name="mobintl">Build wvkbd-mobintl, the mobile international layout variant (default)</flag>
-    		<flag name="deskintl">Build wvkbd-deskintl, the desktop international layout variant</flag>
-	</use>
+  <maintainer type="person">
+    <email>admin@melthecat.dev</email>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">jjsullivan5196/wvkbd</remote-id>
+  </upstream>
+  <use>
+    <flag name="mobintl">Build wvkbd-mobintl, the mobile international layout variant (default)</flag>
+    <flag name="deskintl">Build wvkbd-deskintl, the desktop international layout variant</flag>
+  </use>
 </pkgmetadata>
