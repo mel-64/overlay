@@ -12,13 +12,39 @@ jobs:
         run: |
           set -eux
 
-          GENTOO=/var/db/repos/gentoo
-          GURU=/var/db/repos/guru
+          GENTOO_LOCATION=/var/db/repos/gentoo
+          GENTOO_RSYNC=rsync://mirrors.shork.ch/gentoo
+
+          GURU_LOCATION=/var/db/repos/guru
+          GURU_RSYNC=rsync://mirrors.shork.ch/gentoo-overlays/guru
+
           OVERLAY_LOCATION=/var/db/repos/melody
-          OVERLAY_GIT=https://git.shork.ch/melody/overlay
+          OVERLAY_RSYNC=rsync://mirrors.shork.ch/gentoo-overlays/melody
+
           PROFILE=default/linux/amd64/23.0
 
           export PATH="$HOME/.local/bin:$PATH"
+
+          rsync_cmd(){
+            rsync \
+              --recursive \
+              --links \
+              --hard-links \
+              --perms \
+              --times \
+              --safe-links \
+              --delete-delay \
+              --delay-updates \
+              --timeout=600 \
+              --contimeout=60 \
+              --no-motd \
+              --bwlimit='10m' \
+              --exclude='*.links.tar.gz*' \
+              --exclude='/other' \
+              --exclude='/distfiles' \
+              --exclude='/sources' \
+              "${1}" "${2}"
+          }
 
           mkdir -p /etc/portage
 
@@ -27,10 +53,10 @@ jobs:
           main-repo = gentoo
 
           [gentoo]
-          location = ${GENTOO}
+          location = ${GENTOO_LOCATION}
 
           [guru]
-          location = ${GURU}
+          location = ${GURU_LOCATION}
           masters = gentoo
 
           [melody]
@@ -39,11 +65,11 @@ jobs:
           EOF
 
           mkdir -p /var/db/repos
-          git clone --depth=1 https://github.com/gentoo-mirror/gentoo.git "${GENTOO}"
-          git clone --depth=1 https://github.com/gentoo-mirror/guru.git "${GURU}"
-          git clone --depth=1 "${OVERLAY_GIT}" "${OVERLAY_LOCATION}"
+          rsync_cmd "${GENTOO_RSYNC}" "${GENTOO_LOCATION}"
+          rsync_cmd "${GURU_RSYNC}" "${GURU_LOCATION}"
+          rsync_cmd "${OVERLAY_RSYNC}" "${OVERLAY_LOCATION}"
 
-          ln -s "$GENTOO/profiles/$PROFILE" /etc/portage/make.profile
+          ln -s "$GENTOO_LOCATION/profiles/$PROFILE" /etc/portage/make.profile
 
           cd "${OVERLAY_LOCATION}"
           uvx -w requests pkgcheck scan --exit error,warning,style . && echo "check successful!"
