@@ -19,7 +19,7 @@ is_cargo_ebuild "$new_file" || { echo "not a cargo ebuild. skipping.."; exit 0; 
 # Therefore we need to make sure, that the first src url is always the main source
 url=$(sed -n '/^SRC_URI=/,/^[^[:space:]]/p' "$new_file" | grep -oE 'https?://[^"[:space:]]+' | head -n1)
 
-# Expain ebuilds vars
+# Expand ebuilds vars
 url=$(
     sed \
         -e "s|\${PV}|$new_version|g" \
@@ -35,6 +35,8 @@ src_dir=$(fetch_source "$url" "$workdir/src")
 
 curl -fsSL "$mirror/metadata/license-mapping.conf" \
     -o "$workdir/license-mapping.conf"
+
+[[ ! -f "$src_dir/Cargo.lock" ]] && cargo generate-lockfile -m "$src_dir/Cargo.toml"
 
 uv tool run pycargoebuild -i "$new_file" \
     -d "$workdir/dist" \

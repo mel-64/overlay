@@ -31,11 +31,13 @@
     "executionMode": "update",
     "installTools": {
       "python": {},
-      "uv": {}
+      "uv": {},
+      "rust": {}
     }
   },
   "constraints": {
     "python": "3.14.7",
-    "uv": ">=0.4"
+    "uv": ">=0.4",
+    "rust": "1.98.1"
   }
 }
