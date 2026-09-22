@@ -1,0 +1,13 @@
+# Copyright 1999-2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# renovate: ignore
+
+EAPI=8
+
+inherit acct-group
+DESCRIPTION="Group used for the Beszel monitoring hub and agent"
+KEYWORDS="~amd64 ~arm64"
+
+# If you want this to persist across multiple machines, pick a real number!
+ACCT_GROUP_ID="-1"

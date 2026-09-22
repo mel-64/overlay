@@ -22,3 +22,29 @@ Minimal example:
 # renovate: datasource=github-tags depName=rustic-rs/rustic
 # Current version: 0.11.4
 ```
+
+Ignore a file by instead adding:
+```
+# renovate: ignore
+```
+
+## Derived ebuilds
+
+Following ebuilds were either directly copied and updated by me or meaningfully changed.
+
+This list also includes ebuilds that are dependants of other ebuilds to which above statement applies too.
+
+Big thanks to all authors for their work!!
+
+- acct-group/beszel (fritteli)
+- acct-user/beszel-{agent,hub} (fritteli)
+- app-metrics/beszel-agent (fritteli)
+- www-apps/beszel-hub (fritelli)
+
+
+### Metadata
+
+| name in         list | overlay name in gentoo      | source url                                          | 
+|----------------------|-----------------------------|-----------------------------------------------------|
+| fritelli             | fritelli                    | https://gittr.ch/linux/gentoo-overlay               |
+
