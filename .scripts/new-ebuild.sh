@@ -22,7 +22,7 @@ trap 'rm -rf "$work"' EXIT
 
 tag=$(fetch_release_tag "$repo_url" "$version")
 tag_prefix=${tag%"$version"}
-src=$(fetch_source "$repo_url/archive/$tag.tar.gz" "$work")
+src=$(fetch_source "$repo_url/archive/refs/tags/$tag.tar.gz" "$work")
 
 mkdir -p "$pkg_path"
 file="$pkg_path/$pkg-$version.ebuild"
@@ -38,7 +38,7 @@ EAPI=8
 
 DESCRIPTION=""
 HOMEPAGE=""
-SRC_URI="$repo_url/archive/${tag_prefix}\${PV}.tar.gz -> \${P}.tar.gz"
+SRC_URI="$repo_url/archive/${tag_prefix}/refs/tags/\${PV}.tar.gz -> \${P}.tar.gz"
 
 LICENSE=""
 SLOT="0"

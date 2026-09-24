@@ -16,7 +16,7 @@ mkdir -p "$pkg_path"
 file="$pkg_path/$pkg-$version.ebuild"
 pycargoebuild -o "$file" -e "$src"
 
-sed -i "s|^SRC_URI=\"|&\n\t$repo_url/archive/${tag_prefix}\${PV}.tar.gz -> \${P}.tar.gz|" "$file"
+sed -i "s|^SRC_URI=\"|&\n\t$repo_url/archive/refs/tags/${tag_prefix}\${PV}.tar.gz -> \${P}.tar.gz|" "$file"
 
 topdir=${src##*/}
 [[ $topdir == "$pkg-$version" ]] || sed -i "/^LICENSE=/i S=\"\${WORKDIR}/$topdir\"" "$file"
