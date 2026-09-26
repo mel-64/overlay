@@ -5,42 +5,24 @@ on:
 jobs:
   build:
     runs-on: alpine-tools
+    container:
+      volumes:
+        - /mirrors:/mirrors
     steps:
+      - uses: actions/checkout@v7
       - id: QA
         shell: sh
         name: QA
         run: |
           set -eux
 
-          REPO_LOCATION=/var/db/repos
-          GENTOO_RSYNC=rsync://mirrors.shork.ch/gentoo
-          GURU_RSYNC=rsync://mirrors.shork.ch/gentoo-overlays/guru
-          OVERLAY_RSYNC=rsync://mirrors.shork.ch/gentoo-overlays/melody
+          GENTOO_LOCATION="/mirrors/gentoo"
+          GURU_LOCATION="/mirrors/gentoo-overlays/guru"
+          OVERLAY_LOCATION="$(pwd)"
 
           PROFILE=default/linux/amd64/23.0
 
           export PATH="$HOME/.local/bin:$PATH"
-
-          rsync_cmd(){
-            rsync \
-              --recursive \
-              --links \
-              --hard-links \
-              --perms \
-              --times \
-              --safe-links \
-              --delete-delay \
-              --delay-updates \
-              --timeout=600 \
-              --contimeout=60 \
-              --no-motd \
-              --bwlimit='10m' \
-              --exclude='*.links.tar.gz*' \
-              --exclude='/other' \
-              --exclude='/distfiles' \
-              --exclude='/sources' \
-              "${1}" "${2}"
-          }
 
           mkdir -p /etc/portage
 
@@ -49,24 +31,18 @@ jobs:
           main-repo = gentoo
 
           [gentoo]
-          location = ${REPO_LOCATION}/gentoo
+          location = ${GENTOO_LOCATION}
 
           [guru]
-          location = ${REPO_LOCATION}/guru
+          location = ${GURU_LOCATION}
           masters = gentoo
 
           [melody]
-          location = ${REPO_LOCATION}/meldoy
+          location = ${OVERLAY_LOCATION}
           masters = gentoo guru
           EOF
 
-          mkdir -p "${REPO_LOCATION}"
-          rsync_cmd "${GENTOO_RSYNC}" "${REPO_LOCATION}/gentoo"
-          rsync_cmd "${GURU_RSYNC}" "${REPO_LOCATION}"
-          rsync_cmd "${OVERLAY_RSYNC}" "${REPO_LOCATION}"
+          ln -s "${GENTOO_LOCATION}/profiles/${PROFILE}" "/etc/portage/make.profile"
 
-          ln -s "${REPO_LOCATION}/gentoo/profiles/${PROFILE}" "/etc/portage/make.profile"
-
-          cd "${REPO_LOCATION}/melody"
           uvx -w requests pkgcheck scan --exit error,warning,style . && echo "check successful!"
 
