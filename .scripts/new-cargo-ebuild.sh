@@ -25,8 +25,8 @@ declare -A edition_msrv=(
     [2024]="1.85.0"
     [2021]="1.56.0"
 )
-edition=$(tomlq -r .package.edition "$src/Cargo.toml" 2>/dev/null || true)
-msrv=$(tomlq -r '.package."rust-version"' "$src/Cargo.toml" 2>/dev/null || true)
+edition=$(yq -r .package.edition "$src/Cargo.toml" 2>/dev/null || true)
+msrv=$(yq -r '.package.rust-version' "$src/Cargo.toml" 2>/dev/null || true)
 [[ $msrv =~ ^[0-9]+\.[0-9]+(\.[0-9]+)?$ ]] || msrv=""
 [[ $msrv =~ ^[0-9]+\.[0-9]+$ ]] && msrv+=".0"
 
