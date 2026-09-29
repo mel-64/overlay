@@ -40,6 +40,7 @@ Big thanks to all authors for their work!!
 - acct-user/beszel-{agent,hub} (fritteli)
 - app-metrics/beszel-agent (fritteli)
 - www-apps/beszel-hub (fritelli)
+- app-emulation/winboat-bin (gentoo-zh)
 
 
 ### Metadata
@@ -47,4 +48,5 @@ Big thanks to all authors for their work!!
 | name in         list | overlay name in gentoo      | source url                                          | 
 |----------------------|-----------------------------|-----------------------------------------------------|
 | fritelli             | fritelli                    | https://gittr.ch/linux/gentoo-overlay               |
+| gentoo-zh            | gentoo-zh                   | https://github.com/gentoo-zh/overlay                |
 

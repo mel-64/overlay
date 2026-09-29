@@ -1,0 +1,12 @@
+<pkgmetadata>
+	<upstream>
+		<remote-id type="github">winboat-org/winboat</remote-id>
+	</upstream>
+  <maintainer type="person">
+    <email>admin@melthecat.dev</email>
+  </maintainer>
+  <use>
+    <flag name="docker">Depend on docker as a backend</flag>
+    <flag name="podman">Depend on podman as a backend</flag>
+  </use>
+</pkgmetadata>
