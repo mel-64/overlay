@@ -1,7 +1,7 @@
 <pkgmetadata>
-	<upstream>
-		<remote-id type="github">winboat-org/winboat</remote-id>
-	</upstream>
+  <upstream>
+    <remote-id type="github">winboat-org/winboat</remote-id>
+  </upstream>
   <maintainer type="person">
     <email>admin@melthecat.dev</email>
   </maintainer>

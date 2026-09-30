@@ -18,9 +18,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RESTRICT="strip"
+IUSE="+docker podman"
 
-IUSE="+docker -podman"
+RESTRICT="strip"
 
 REQUIRED_USE="^^ ( docker podman )"
 
