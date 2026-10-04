@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 # renovate: datasource=github-tags depName=henrygd/beszel
+# Current version: v0.20.0
 
 EAPI=8
 
