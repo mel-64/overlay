@@ -2,14 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 
 # renovate: datasource=github-tags depName=henrygd/beszel
-# Current version: v0.20.0
+# Current version: 0.21.0
 
 EAPI=8
 
 inherit go-module systemd
 
 MY_P="beszel-${PV}"
-DESCRIPTION="Beszel Hub - Simple, lightweight server monitoring"
+DESCRIPTION="Beszel Agent - Simple, lightweight server monitoring"
 HOMEPAGE="https://www.beszel.dev/ https://github.com/henrygd/beszel/"
 EGO_SUM=(
 	"filippo.io/edwards25519 v1.1.0"
@@ -231,8 +231,7 @@ EGO_SUM=(
 go-module_set_globals
 
 SRC_URI="https://github.com/henrygd/beszel/archive/refs/tags/v${PV}.tar.gz -> ${MY_P}.tar.gz
-	${EGO_SUM_SRC_URI}
-	https://gentoo-overlay.friedli.info/${MY_P}-site.tar.xz"
+	${EGO_SUM_SRC_URI}"
 
 S="${WORKDIR}/${MY_P}"
 
@@ -240,20 +239,20 @@ LICENSE="AGPL-3+"
 # Go dependency licenses
 LICENSE+=" AGPL-3 Apache-2.0 BSD GPL-3+ ISC MIT MPL-2.0 public-domain"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 
-DEPEND="acct-user/beszel-hub
+DEPEND="acct-user/beszel-agent
 	acct-group/beszel"
 
 BDEPEND=">=dev-lang/go-1.27.1"
 
 src_compile() {
-	cd internal/cmd/hub
+	cd internal/cmd/agent || die
 	ego build -ldflags "-w -s"
 }
 
 src_install() {
-	newbin "${S}/internal/cmd/hub/hub" ${PN}
+	newbin "${S}/internal/cmd/agent/agent" ${PN}
 
 	dodir /etc/${PN}
 	keepdir /var/lib/${PN}
