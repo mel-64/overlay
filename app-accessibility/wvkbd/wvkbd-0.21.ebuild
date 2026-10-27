@@ -4,7 +4,7 @@
 # Adapted from ell07 overlay
 
 # renovate: datasource=github-tags depName=jjsullivan5196/wvkbd
-# Current version: 0.20
+# Current version: 0.21
 
 EAPI=8
 
