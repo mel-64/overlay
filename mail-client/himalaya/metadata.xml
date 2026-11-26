@@ -13,7 +13,6 @@
     <flag name="gmail">add gmail support</flag>
     <flag name="imap">add imap support</flag>
     <flag name="jmap">add jmap support</flag>
-    <flag name="m2dir">add m2dir support</flag>
     <flag name="maildir">add maildir support</flag>
     <flag name="msgraph">add msgraph support</flag>
     <flag name="native-tls">use native tls</flag>
@@ -22,5 +21,7 @@
     <flag name="rustls-ring">use rustls-ring</flag>
     <flag name="smtp">add smtp support</flag>
     <flag name="vendored">enable vendored cargo feature</flag>
+    <flag name="mbox">enable mbox feature</flag>
+    <flag name="sieve">enable sieve feature</flag>
   </use>
 </pkgmetadata>
