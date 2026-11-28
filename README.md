@@ -36,10 +36,6 @@ This list also includes ebuilds that are dependants of other ebuilds to which ab
 
 Big thanks to all authors for their work!!
 
-- acct-group/beszel (fritteli)
-- acct-user/beszel-{agent,hub} (fritteli)
-- app-metrics/beszel-agent (fritteli)
-- www-apps/beszel-hub (fritelli)
 - app-emulation/winboat-bin (gentoo-zh)
 
 
@@ -47,6 +43,5 @@ Big thanks to all authors for their work!!
 
 | name in         list | overlay name in gentoo      | source url                                          | 
 |----------------------|-----------------------------|-----------------------------------------------------|
-| fritelli             | fritelli                    | https://gittr.ch/linux/gentoo-overlay               |
 | gentoo-zh            | gentoo-zh                   | https://github.com/gentoo-zh/overlay                |
 
